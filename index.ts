@@ -25,4 +25,4 @@ export function Chain<T>(input: T[]) {
   return new Chainable<T>(input);
 }
 
-export * from './methods';
+export * from './methods.ts';
