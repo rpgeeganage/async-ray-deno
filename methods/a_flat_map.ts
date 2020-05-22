@@ -1,4 +1,4 @@
-import { aMap } from './a_map';
+import { aMap } from './a_map.ts';
 
 /** returns any type values */
 export type CallBackFlatMap<T, R> = (

@@ -1,4 +1,4 @@
-import * as Methods from './methods';
+import * as Methods from './methods/index.ts';
 
 /**
  * AsyncArray Class

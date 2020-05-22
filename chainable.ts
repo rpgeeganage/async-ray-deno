@@ -1,5 +1,5 @@
-import { AsyncArray } from './async_array';
-import * as methods from './methods';
+import { AsyncArray } from './async_array.ts';
+import * as methods from './methods/index.ts';
 
 type CallBacks =
   | methods.CallBackEvery<any>
