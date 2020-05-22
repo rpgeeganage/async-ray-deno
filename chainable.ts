@@ -1,16 +1,25 @@
 import { AsyncArray } from "./async_array.ts";
-import * as methods from "./methods/index.ts";
+import { CallBackEvery, aEvery } from "./methods/a_every.ts";
+import { CallBackFilter, aFilter } from "./methods/a_filter.ts";
+import { CallBackFind, aFind } from "./methods/a_find.ts";
+import { CallBackFindIndex, aFindIndex } from "./methods/a_find_index.ts";
+import { CallBackFlatMap, aFlatMap } from "./methods/a_flat_map.ts";
+import { CallBackForEach, aForEach } from "./methods/a_foreach.ts";
+import { CallBackMap, aMap } from "./methods/a_map.ts";
+import { CallBackReduce, aReduce } from "./methods/a_reduce.ts";
+import { CallBackReduceRight, aReduceRight } from "./methods/a_reduce_right.ts";
+import { CallBackSome, aSome } from "./methods/a_some.ts";
 
 type CallBacks =
-  | methods.CallBackEvery<any>
-  | methods.CallBackFilter<any>
-  | methods.CallBackFind<any>
-  | methods.CallBackFindIndex<any>
-  | methods.CallBackMap<any, any>
-  | methods.CallBackReduce<any, any>
-  | methods.CallBackReduceRight<any, any>
-  | methods.CallBackSome<any>
-  | methods.CallBackFlatMap<any, any>;
+  | CallBackEvery<any>
+  | CallBackFilter<any>
+  | CallBackFind<any>
+  | CallBackFindIndex<any>
+  | CallBackMap<any, any>
+  | CallBackReduce<any, any>
+  | CallBackReduceRight<any, any>
+  | CallBackSome<any>
+  | CallBackFlatMap<any, any>;
 
 /**
  * Interface for the single entry for the call stack
@@ -50,109 +59,109 @@ export class Chainable<T> {
   /**
    * aEvery method of Async-Ray lib
    *
-   * @param {methods.CallBackEvery<T>} cb
+   * @param {CallBackEvery<T>} cb
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aEvery(cb: methods.CallBackEvery<T>): Promise<any> {
-    return this.addNoneChainableMethod(methods.aEvery, cb);
+  aEvery(cb: CallBackEvery<T>): Promise<any> {
+    return this.addNoneChainableMethod(aEvery, cb);
   }
 
   /**
    * aFilter method of Async-Ray lib
    *
-   * @param {methods.CallBackFilter<T>} cb
+   * @param {CallBackFilter<T>} cb
    * @returns {Chainable<T>}
    * @memberof Chainable
    */
-  aFilter(cb: methods.CallBackFilter<T>): Chainable<T> {
-    return this.addChainableMethod(methods.aFilter, cb);
+  aFilter(cb: CallBackFilter<T>): Chainable<T> {
+    return this.addChainableMethod(aFilter, cb);
   }
 
   /**
    * aFindIndex method of Async-Ray lib
    *
-   * @param {methods.CallBackFindIndex<T>} cb
+   * @param {CallBackFindIndex<T>} cb
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aFindIndex(cb: methods.CallBackFindIndex<T>): Promise<any> {
-    return this.addNoneChainableMethod(methods.aFindIndex, cb);
+  aFindIndex(cb: CallBackFindIndex<T>): Promise<any> {
+    return this.addNoneChainableMethod(aFindIndex, cb);
   }
 
   /**
    * aFind method of Async-Ray lib
    *
-   * @param {methods.CallBackFind<T>} cb
+   * @param {CallBackFind<T>} cb
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aFind(cb: methods.CallBackFind<T>): Promise<any> {
-    return this.addNoneChainableMethod(methods.aFind, cb);
+  aFind(cb: CallBackFind<T>): Promise<any> {
+    return this.addNoneChainableMethod(aFind, cb);
   }
 
   /**
    * aForEach method of Async-Ray lib
    *
-   * @param {methods.CallBackForEach<T>} cb
+   * @param {CallBackForEach<T>} cb
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aForEach(cb: methods.CallBackForEach<T>): Promise<any> {
-    return this.addNoneChainableMethod(methods.aForEach, cb);
+  aForEach(cb: CallBackForEach<T>): Promise<any> {
+    return this.addNoneChainableMethod(aForEach, cb);
   }
 
   /**
    * aMap method of Async-Ray lib
    *
    * @template R
-   * @param {methods.CallBackMap<T, R>} cb
+   * @param {CallBackMap<T, R>} cb
    * @returns {Chainable<T>}
    * @memberof Chainable
    */
-  aMap<R>(cb: methods.CallBackMap<T, R>): Chainable<T> {
-    return this.addChainableMethod(methods.aMap, cb);
+  aMap<R>(cb: CallBackMap<T, R>): Chainable<T> {
+    return this.addChainableMethod(aMap, cb);
   }
 
   /**
    * aReduceRight method of Async-Ray lib
    *
    * @template R
-   * @param {methods.CallBackReduceRight<T, R>} cb
+   * @param {CallBackReduceRight<T, R>} cb
    * @param {R} [initialValue]
    * @returns {Promise<any>}
    * @memberof Chainable
    */
   aReduceRight<R>(
-    cb: methods.CallBackReduceRight<T, R>,
+    cb: CallBackReduceRight<T, R>,
     initialValue?: R,
   ): Promise<any> {
-    return this.addNoneChainableMethod(methods.aReduceRight, cb, initialValue);
+    return this.addNoneChainableMethod(aReduceRight, cb, initialValue);
   }
 
   /**
    * aReduce method of Async-Ray lib
    *
    * @template R
-   * @param {methods.CallBackReduce<T, R>} cb
+   * @param {CallBackReduce<T, R>} cb
    * @param {R} [initialValue]
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aReduce<R>(cb: methods.CallBackReduce<T, R>, initialValue?: R): Promise<any> {
-    return this.addNoneChainableMethod(methods.aReduce, cb, initialValue);
+  aReduce<R>(cb: CallBackReduce<T, R>, initialValue?: R): Promise<any> {
+    return this.addNoneChainableMethod(aReduce, cb, initialValue);
   }
 
   /**
    * aSome method of Async-Ray lib
    *
    * @template R
-   * @param {methods.CallBackSome<T>} cb
+   * @param {CallBackSome<T>} cb
    * @returns {Promise<any>}
    * @memberof Chainable
    */
-  aSome<R>(cb: methods.CallBackSome<T>): Promise<any> {
-    return this.addNoneChainableMethod(methods.aSome, cb);
+  aSome<R>(cb: CallBackSome<T>): Promise<any> {
+    return this.addNoneChainableMethod(aSome, cb);
   }
 
   /**
@@ -163,8 +172,8 @@ export class Chainable<T> {
    * @returns {Chainable<T>}
    * @memberof Chainable
    */
-  aFlatMap<R>(cb: methods.CallBackFlatMap<T, R>): Chainable<T> {
-    return this.addChainableMethod(methods.aFlatMap, cb);
+  aFlatMap<R>(cb: CallBackFlatMap<T, R>): Chainable<T> {
+    return this.addChainableMethod(aFlatMap, cb);
   }
 
   /**
