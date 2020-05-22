@@ -21,7 +21,7 @@ Purpose of this package is to provide `async/await` callbacks for `every`, `filt
 ## Basic usage
 
 ```js
-const { AsyncRay } = require('async-ray');
+import { AsyncRay } from "https://deno.land/x/async_ray/mod.ts";
 ```
 
 ## Supported methods
