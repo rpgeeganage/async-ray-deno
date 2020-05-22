@@ -2,7 +2,7 @@
 export type CallBackSome<T> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<boolean>;
 
 /**
@@ -16,7 +16,7 @@ export type CallBackSome<T> = (
  */
 export async function aSome<T>(
   elements: T[],
-  cb: CallBackSome<T>
+  cb: CallBackSome<T>,
 ): Promise<boolean> {
   for (const [index, element] of elements.entries()) {
     if (await cb(element, index, elements)) {

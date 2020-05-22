@@ -1,5 +1,5 @@
-import { AsyncArray } from './async_array.ts';
-import * as methods from './methods/index.ts';
+import { AsyncArray } from "./async_array.ts";
+import * as methods from "./methods/index.ts";
 
 type CallBacks =
   | methods.CallBackEvery<any>
@@ -125,7 +125,7 @@ export class Chainable<T> {
    */
   aReduceRight<R>(
     cb: methods.CallBackReduceRight<T, R>,
-    initialValue?: R
+    initialValue?: R,
   ): Promise<any> {
     return this.addNoneChainableMethod(methods.aReduceRight, cb, initialValue);
   }
@@ -182,7 +182,7 @@ export class Chainable<T> {
           null,
           currentInput,
           nextCall.callBack,
-          nextCall.additional
+          nextCall.additional,
         );
       } catch (error) {
         this.clear();
@@ -211,7 +211,7 @@ export class Chainable<T> {
   private addChainableMethod(
     method: Function,
     callBack: CallBacks,
-    additional?: any
+    additional?: any,
   ): Chainable<T> {
     this.add(method, callBack, additional);
 
@@ -231,7 +231,7 @@ export class Chainable<T> {
   private addNoneChainableMethod(
     method: Function,
     callBack: CallBacks,
-    additional?: any
+    additional?: any,
   ): Promise<any> {
     this.add(method, callBack, additional);
 

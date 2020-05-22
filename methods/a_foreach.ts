@@ -2,7 +2,7 @@
 export type CallBackForEach<T> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<void>;
 
 /**
@@ -16,7 +16,7 @@ export type CallBackForEach<T> = (
  */
 export async function aForEach<T>(
   elements: T[],
-  cb: CallBackForEach<T>
+  cb: CallBackForEach<T>,
 ): Promise<void> {
   for (const [index, element] of elements.entries()) {
     await cb(element, index, elements);

@@ -1,4 +1,4 @@
-import * as Methods from './methods/index.ts';
+import * as Methods from "./methods/index.ts";
 
 /**
  * AsyncArray Class
@@ -23,7 +23,7 @@ export class AsyncArray<T> extends Array<T> {
      * [null, null, ...]
      * In order to avoid that, we need the particular workaround
      */
-    if (args.length === 1 && typeof args[0] === 'number') {
+    if (args.length === 1 && typeof args[0] === "number") {
       super(1);
       super[0] = args[0];
     } else {
@@ -121,7 +121,7 @@ export class AsyncArray<T> extends Array<T> {
    */
   async aReduce<R>(
     cb: Methods.CallBackReduce<T, R>,
-    initialValue?: R
+    initialValue?: R,
   ): Promise<T | R> {
     return Methods.aReduce(this, cb, initialValue);
   }
@@ -137,7 +137,7 @@ export class AsyncArray<T> extends Array<T> {
    */
   async aReduceRight<R>(
     cb: Methods.CallBackReduceRight<T, R>,
-    initialValue?: R
+    initialValue?: R,
   ): Promise<T | R> {
     return Methods.aReduceRight(this, cb, initialValue);
   }

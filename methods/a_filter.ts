@@ -2,7 +2,7 @@
 export type CallBackFilter<T> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<boolean>;
 
 /**
@@ -16,7 +16,7 @@ export type CallBackFilter<T> = (
  */
 export async function aFilter<T>(
   elements: T[],
-  cb: CallBackFilter<T>
+  cb: CallBackFilter<T>,
 ): Promise<T[]> {
   const filteredResults: T[] = [];
   for (const [index, element] of elements.entries()) {

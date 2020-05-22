@@ -2,7 +2,7 @@
 export type CallBackMap<T, R> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<R>;
 
 /**
@@ -17,7 +17,7 @@ export type CallBackMap<T, R> = (
  */
 export async function aMap<T, R>(
   elements: T[],
-  cb: CallBackMap<T, R>
+  cb: CallBackMap<T, R>,
 ): Promise<R[]> {
   const mappedResults: R[] = [];
   for (const [index, element] of elements.entries()) {

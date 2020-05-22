@@ -1,10 +1,10 @@
-import { aMap } from './a_map.ts';
+import { aMap } from "./a_map.ts";
 
 /** returns any type values */
 export type CallBackFlatMap<T, R> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<R>;
 
 /**
@@ -19,12 +19,12 @@ export type CallBackFlatMap<T, R> = (
  */
 export async function aFlatMap<T, R>(
   elements: T[],
-  cb: CallBackFlatMap<T, R>
+  cb: CallBackFlatMap<T, R>,
 ): Promise<R[]> {
   const results = await aMap(elements, cb);
 
   return results.reduce(
     (a: R[], r: R | R[]) => (Array.isArray(r) ? a.concat(...r) : a.concat(r)),
-    []
+    [],
   );
 }

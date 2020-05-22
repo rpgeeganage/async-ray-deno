@@ -3,7 +3,7 @@ export type CallBackReduceRight<T, R> = (
   accumulator: T | R,
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<T | R>;
 
 /**
@@ -20,10 +20,10 @@ export type CallBackReduceRight<T, R> = (
 export async function aReduceRight<T, R>(
   elements: T[],
   cb: CallBackReduceRight<T, R>,
-  initialValue?: R
+  initialValue?: R,
 ): Promise<T | R> {
   if (!elements.length && initialValue === undefined) {
-    throw new Error('Reduce of empty array with no initial value');
+    throw new Error("Reduce of empty array with no initial value");
   }
 
   let reducedValue: T | R;

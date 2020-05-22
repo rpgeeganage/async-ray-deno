@@ -1,5 +1,5 @@
-import { AsyncArray } from './async_array.ts';
-import { Chainable } from './chainable.ts';
+import { AsyncArray } from "./async_array.ts";
+import { Chainable } from "./chainable.ts";
 
 /**
  * Get AsyncArray element
@@ -25,4 +25,4 @@ export function Chain<T>(input: T[]) {
   return new Chainable<T>(input);
 }
 
-export * from './methods/index.ts';
+export * from "./methods/index.ts";

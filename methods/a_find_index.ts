@@ -2,7 +2,7 @@
 export type CallBackFindIndex<T> = (
   value: T,
   index?: number,
-  collection?: T[]
+  collection?: T[],
 ) => Promise<boolean>;
 
 /**
@@ -16,7 +16,7 @@ export type CallBackFindIndex<T> = (
  */
 export async function aFindIndex<T>(
   elements: T[],
-  cb: CallBackFindIndex<T>
+  cb: CallBackFindIndex<T>,
 ): Promise<number> {
   for (const [index, element] of elements.entries()) {
     if (await cb(element, index, elements)) {
