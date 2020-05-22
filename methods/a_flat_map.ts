@@ -23,5 +23,8 @@ export async function aFlatMap<T, R>(
 ): Promise<R[]> {
   const results = await aMap(elements, cb);
 
-  return [...results];
+  return results.reduce(
+    (a: R[], r: R | R[]) => (Array.isArray(r) ? a.concat(...r) : a.concat(r)),
+    []
+  );
 }
